@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Complaint</title>
+    <style>
+        body {font-family: Arial, Helvetica, sans-serif;}
+        form {border: 3px solid #f1f1f1;}
+        
+        input[type=text], input[type=email] {
+          width: 100%;
+          padding: 12px 20px;
+          margin: 8px 0;
+          display: inline-block;
+          border: 1px solid #ccc;
+          box-sizing: border-box;
+        }
+
+        textarea {
+          width: 100%;
+        }
+        
+        button {
+          color: white;
+          padding: 14px 20px;
+          margin: 8px 0;
+          border: none;
+          cursor: pointer;
+          width: 10%;
+        }
+        
+        .success {background-color: #4CAF50;} /* Green */
+        .success:hover {background-color: #46a049;}
+        .danger {background-color: #f44336;} /* Red */
+        .danger:hover {background: #da190b;}
+        
+        button:hover {
+          opacity: 0.8;
+        }
+        
+        .cancelbtn {
+          width: auto;
+          padding: 10px 18px;
+          background-color: #f44336;
+        }
+        
+        .imgcontainer {
+          text-align: center;
+          margin: 24px 0 12px 0;
+        }
+        
+        img.avatar {
+          width: 40%;
+          border-radius: 50%;
+        }
+        
+        .container {
+          padding: 16px;
+        }
+        
+        span.psw {
+          float: right;
+          padding-top: 16px;
+        }
+        
+        /* Change styles for span and cancel button on extra small screens */
+        @media screen and (max-width: 300px) {
+          span.psw {
+             display: block;
+             float: none;
+          }
+          .cancelbtn {
+             width: 100%;
+          }
+        }
+        </style>
+</head>
+<body>
+    <h2 style="text-align: center;"><c><i>File Complaint</i></c></h2>
+<form action="/usercomplaintsubmit" method="post" enctype="multipart/form-data"> {% csrf_token %}
+    <div class="container">
+        
+        <label><b>Username</b></label>
+        <input type="text" name="userusername" value="{{rec.0}}" readonly><br><br>
+        
+        <label><b>Name</b></label>
+        <input type="text" name="name" value="{{rec.3}}" readonly><br><br>
+
+        <label><b>Complaint Type</b></label>
+        <input type="text" name="ctype" required><br><br>
+
+        <label><b>Complaint Details</b></label><br>
+        <textarea name="cdetail" cols="30" rows="5" required></textarea><br><br>
+
+        <label><b>Date</b></label>
+        <input type='date' id='date' name='date' required><br><br>
+
+        <label><b>Email Address</b></label>
+        <input type='email' name='email' value="{{rec.8}}" readonly><br><br>
+
+        <label><b>Mobile Number</b></label>
+        <input type='text' pattern='[0-9]{10}' name='mob' value="{{rec.9}}" readonly><br><br>
+
+        <label><b>City</b></label>
+        <input type="text" name="city" placeholder="Enter City" required><br><br>
+
+        <button type="submit" class="success">Submit</button>
+        <button type="reset" class="danger">Reset</button>
+    {{ msg }}
+    </div>
+</form>
+
+</body>
+</html>

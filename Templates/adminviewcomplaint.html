@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="/savestatus">
+    <b>Complaint id:</b>&nbsp;&nbsp;{{row.0}}<br><br>
+    <div style="float: right;"><b>Date Of Incidence:</b>&nbsp;&nbsp;{{row.4}}</div>
+    <b>Username:</b>&nbsp;&nbsp;{{row.1}}<br><br>
+    <b>Name:</b>&nbsp;&nbsp;{{row.9}}<br><br>
+    <b>Complaint:</b>&nbsp;&nbsp;{{row.3}}<br><br>
+    <b>Status:</b>&nbsp;&nbsp;<input type="text" name="status" value="{{row.8}}">
+    <input type="text" name="complaintid" value="{{row.0}}" hidden>
+    <input type="submit" value="Update">
+    </form>
+</body>
+</html>

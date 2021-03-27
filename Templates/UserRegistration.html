@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User Registration</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/mycss.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <script src="/static/project.js"></script>
+    <style>
+        body {font-family: Arial, Helvetica, sans-serif;}
+        form {border: 3px solid #f1f1f1;}
+        
+        input[type=text], input[type=email], input[type=password] {
+          width: 100%;
+          padding: 12px 20px;
+          margin: 8px 0;
+          display: inline-block;
+          border: 1px solid #ccc;
+          box-sizing: border-box;
+        }
+
+        textarea {
+          width: 100%;
+        }
+        
+        button {
+          color: white;
+          padding: 14px 20px;
+          margin: 8px 0;
+          border: none;
+          cursor: pointer;
+          width: 10%;
+        }
+        
+        .success {background-color: #4CAF50;} /* Green */
+        .success:hover {background-color: #46a049;}
+        .danger {background-color: #f44336;} /* Red */
+        .danger:hover {background: #da190b;}
+        
+        button:hover {
+          opacity: 0.8;
+        }
+        
+        .cancelbtn {
+          width: auto;
+          padding: 10px 18px;
+          background-color: #f44336;
+        }
+        
+        .imgcontainer {
+          text-align: center;
+          margin: 24px 0 12px 0;
+        }
+        
+        img.avatar {
+          width: 40%;
+          border-radius: 50%;
+        }
+        
+        .mycontainer {
+          padding: 35px;
+        }
+        
+        span.psw {
+          float: right;
+          padding-top: 16px;
+        }
+        
+        /* Change styles for span and cancel button on extra small screens */
+        @media screen and (max-width: 300px) {
+          span.psw {
+             display: block;
+             float: none;
+          }
+          .cancelbtn {
+             width: 100%;
+          }
+        }
+        </style>
+</head>
+<body style="margin: 0;">
+    <div class="nav">
+		<a href="/homepage">HOME</a>
+		<a href="/adminlogin">ADMIN-LOGIN</a>
+        <a href="/userlogin">USER-LOGIN</a>
+        <a href="/userinterface" style="background-color: #e74c3c;">USER REGISTER</a>
+        <a href="/contactus">CONTACT US</a>
+        <a href="/helpline">HELPLINE</a>
+    </div>
+    <h2 style="text-align: center;"><c><i>User Registration</i></c></h2>
+<form action="/userdetailsubmit" method="post" enctype="multipart/form-data"> {% csrf_token %}
+    <div class="mycontainer">
+        <label><b>Username</b></label>
+        <input type="text" name="userusername" placeholder="Enter Username" required><br><br>
+
+        <label><b>Password</b></label>
+        <input type="password" name="pwd" id="pwd" placeholder="Enter Password" required><br><br>
+        
+        <label><b>Repeat Password</b></label>
+        <input type="password" name="repeatpwd" id="repeatpwd" placeholder="Repeat Password" required><span id="pmsg"></span><br><br>
+
+        <label><b>Name</b></label>
+        <input type='text' placeholder='First Name' id='fn' name='fn' pattern='[a-z A-Z]+' required>
+        <input type='text' placeholder='Middle Name' id='mn' name='mn' pattern='[a-z A-Z]+'>
+        <input type='text' placeholder='Last Name' id='ln' name='ln' pattern='[a-z A-Z]+' required><br><br>
+    
+        <label><b>Date Of Birth</b></label>
+        <input type='date' id='dob' name='dob' required>
+
+        <br><br><label><b>Gender</b></label>
+        <input type='radio' name='gen' value='M' required>Male
+        <input type='radio' name='gen' value='F' required>Female
+
+        <br><br><label><b>Email Address</b></label>
+        <input type='email' name='email' placeholder="Enter Email" required>
+
+        <br><br><label><b>Mobile Number</b></label>
+        <input type='text' pattern='[0-9]{10}' placeholder="Enter Contact Number" name='mob' required><br><br>
+
+        <label><b>Aadhar Number</b></label>
+        <input type='text' name='adhr' placeholder="Enter Aadhar Number" required><br><br>
+
+        <label><b>Upload Your Picture</b></label>
+        <input type="file" name="pic">
+
+        <br><br><label><b>State</b></label>
+        <input type="text" name="state" placeholder="Enter Your State" required><br><br>
+
+        <label><b>City</b></label>
+        <input type="text" name="city" placeholder="Enter Your City" required><br>
+        <!--
+        <select name='state' id="state" onChange="fillcity()" required>
+            <option>--Select State--</option>
+            <option>Andhra Pradesh</option><option>Arunachal Pradesh</option><option>Assam</option><option>Bihar</option><option>Chhatisgarh</option><option>Goa</option><option>Gujrat</option>
+            <option>Haryana</option><option>Himachal Pradesh</option><option>Jharkhand</option><option>Karnataka</option><option>Kerela</option><option>Madhya Pradesh</option><option>Maharashtra</option>
+            <option>Manipur</option><option>Meghalaya</option><option>Mizoram</option><option>Nagaland</option><option>Odisha</option><option>Punjab</option><option>Rajasthan</option>
+            <option>Sikkim</option><option>Tamil Nadu</option><option>Telangana</option><option>Tripura</option><option>Uttrakhand</option><option>Uttar Pradesh</option><option>West Bengal</option>
+            <option>Andaman and Nicobar Island</option><option>Chandigarh</option><option>Dadar and Nagar Haveli and Daman & Diu</option><option>The Government Of NCT of Delhi</option><option>Jammu & Kashmir</option><option>Ladakh</option><option>Lakshadweep</option><option>Puducherry</option></select>
+        
+        <br><br><label><b>City</b></label>
+        <select name='city' id="city" required>
+        </select>
+      -->    
+
+        <br><label><b>Residental Address</b></label><br>
+        <textarea rows='3' cols='30' id='add' name='add' placeholder="Your Address" required></textarea>
+        
+        <br><br>
+        <button type="submit" class="success">Submit</button>
+        <button type="reset" class="danger">Reset</button>
+        </div>
+
+    {{ msg }}
+</form>
+</body>
+</html>
+

@@ -1,0 +1,29 @@
+.container {
+	height: 10vh;
+	word-spacing: 3px;
+	justify-content: center;
+	color: #273c75;
+	margin-top: 3%;
+	margin-bottom: 3%;
+	font-size: 50px;
+	font-family: 'Open Sans';
+	font-weight: 800;
+}
+
+.nav {background-color: #4a69bd;
+overflow: hidden;
+}
+
+.nav a{
+  float:left;
+  color:white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration:none;
+  font-size:17px;
+}
+
+.nav a:hover {
+	background-color: #e74c3c;
+}
+
